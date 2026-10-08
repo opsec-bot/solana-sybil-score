@@ -96,7 +96,7 @@ export class RpcProvider {
     const transfers: Transfer[] = [];
     const activity: Activity[] = [];
     await pool(sigs, this.concurrency, async (sig) => {
-      const tx = await this.call<ParsedTx | null>("getTransaction", [sig, { encoding: "jsonParsed", maxSupportedTransactionVersion: 0 }]);
+      const tx = await this.call<ParsedTx | null>("getTransaction", [sig, { encoding: "jsonParsed", maxSupportedTransactionVersion: 1 }]);
       if (!tx) return;
       const parsed = parseTransaction(tx, address);
       transfers.push(...parsed.transfers);

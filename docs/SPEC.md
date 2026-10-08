@@ -113,7 +113,7 @@ count. A project can then decide "one allocation per cluster" if it wants.
 same report, byte for byte, so anyone can rerun it.
 
 ## Data provider
-`RpcProvider` uses only standard Solana JSON-RPC (`getSignaturesForAddress`, `getTransaction` with `jsonParsed`), so it
+`RpcProvider` uses only standard Solana JSON-RPC (`getSignaturesForAddress`, `getTransaction` with `jsonParsed`, asking for transaction version 1 since mainnet now carries v1 transactions), so it
 works with any RPC. It pages back through history up to `maxSignatures` (default 1000) per wallet; if it stops early,
 `complete` is false and funding signals skip that wallet. It parses SOL movements from System Program `transfer`,
 `transferWithSeed`, `createAccount` and `createAccountWithSeed` instructions, including inner instructions. Only
